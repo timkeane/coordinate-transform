@@ -20,4 +20,4 @@ http://localhost:3000/postgis/EPSG:4326/EPSG:3857/-73.9856945509795/40.693726387
 
 ## postgis endpoint requires an environment variable for the connection string
 
-POSTGIS_URI="postgresql://user:password@localhost:5432/dbname"
+`POSTGIS_URI="postgresql://user:password@localhost:5432/dbname"`
