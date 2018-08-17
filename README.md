@@ -6,6 +6,10 @@
 
 `yarn install`
 
+## Run the tests
+
+`yarn test`
+
 ## Run the server
 
 `yarn start`
@@ -23,3 +27,13 @@ http://localhost:3000/postgis/EPSG:4326/EPSG:3857/-73.9856945509795/40.693726387
 ## Use of the postgis endpoint requires an environment variable for a connection string to a running instance of PostGIS
 
 `POSTGIS_URI="postgresql://user:password@localhost:5432/dbname"`
+
+## Travis build reports
+
+https://travis-ci.org/timkeane/coordinate-transform/builds
+
+## Test coverage reports
+
+file:///{project-root}/coverage/lcov-report/index.html
+
+https://coveralls.io/github/timkeane/coordinate-transform
