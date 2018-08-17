@@ -12,11 +12,11 @@ const transform = {
     const sql = `SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_GeomFromText('POINT(${x} ${y})',${fromEpsg}),${toEpsg}) c) t`
     transform.pool.query(sql, (error, result) => {
       if (error) {
-        const connError = error.syscall === 'connect'
-        response.status(connError ? 500 : 400).json({
-          message: connError ? 'no database' : error.message,
-          hint: error.hint
-        })
+        if (error.syscall === 'connect') {
+          response.status(500).json({message: 'no database'})
+        } else {
+          response.status(400).json({message: error.message, hint: error.hint})
+        }
       } else {
         const transformed = result.rows[0]
         response.json([transformed.x, transformed.y])
