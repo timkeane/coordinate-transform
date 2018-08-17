@@ -1,3 +1,5 @@
+console.warn('WTF');
+
 const express = require('express')
 const proj4 = require('./src/proj4')
 const postgis = require('./src/postgis')
