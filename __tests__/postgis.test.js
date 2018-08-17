@@ -35,7 +35,7 @@ test('transform success', () => {
   expect(Pool.mock.calls[0][0]).toEqual({connectionString: process.env.POSTGIS_URI})
 
   expect(transform.pool.query).toHaveBeenCalledTimes(1)
-  expect(transform.pool.query.mock.calls[0][0]).toBe(`SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${param.x},${param.y}),${params.fromEpsg.split(':')[1]}),${params.toEpsg.split(':')[1]}) c) t`)
+  expect(transform.pool.query.mock.calls[0][0]).toBe(`SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${params.x},${params.y}),${params.fromEpsg.split(':')[1]}),${params.toEpsg.split(':')[1]}) c) t`)
   
   expect(mockResponse.json).toHaveBeenCalledTimes(1)
   expect(mockResponse.json.mock.calls[0][0]).toEqual(['transformed-x', 'transformed-y'])
@@ -58,7 +58,7 @@ test('transform bad request', () => {
   expect(Pool.mock.calls[0][0]).toEqual({connectionString: process.env.POSTGIS_URI})
 
   expect(transform.pool.query).toHaveBeenCalledTimes(1)
-  expect(transform.pool.query.mock.calls[0][0]).toBe(`SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${param.x},${param.y}),${params.fromEpsg.split(':')[1]}),${params.toEpsg.split(':')[1]}) c) t`)
+  expect(transform.pool.query.mock.calls[0][0]).toBe(`SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${params.x},${params.y}),${params.fromEpsg.split(':')[1]}),${params.toEpsg.split(':')[1]}) c) t`)
   
   expect(mockResponse.status).toHaveBeenCalledTimes(1)
   expect(mockResponse.status.mock.calls[0][0]).toBe(400)
@@ -84,7 +84,7 @@ test('transform no database', () => {
   expect(Pool.mock.calls[0][0]).toEqual({connectionString: process.env.POSTGIS_URI})
 
   expect(transform.pool.query).toHaveBeenCalledTimes(1)
-  expect(transform.pool.query.mock.calls[0][0]).toBe(`SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${param.x},${param.y}),${params.fromEpsg.split(':')[1]}),${params.toEpsg.split(':')[1]}) c) t`)
+  expect(transform.pool.query.mock.calls[0][0]).toBe(`SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${params.x},${params.y}),${params.fromEpsg.split(':')[1]}),${params.toEpsg.split(':')[1]}) c) t`)
   
   expect(mockResponse.status).toHaveBeenCalledTimes(1)
   expect(mockResponse.status.mock.calls[0][0]).toBe(500)
