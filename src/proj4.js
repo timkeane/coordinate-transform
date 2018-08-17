@@ -15,10 +15,10 @@ const transform = {
     const y = params.y * 1
     try {
       const transformed = transform.proj4(fromEpsg, toEpsg, [x, y])
-      response.send(JSON.stringify(transformed))  
+      response.json(transformed)
     } catch (error) {
       console.error(error)
-      response.status(500).send(JSON.stringify({message: error.message}))
+      response.status(500).json({message: error.message})
     }
   }
 }

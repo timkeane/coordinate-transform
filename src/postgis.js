@@ -14,13 +14,13 @@ const transform = {
       if (error) {
         console.error(sql)
         console.error(error)
-        response.status(500).send(JSON.stringify({
-          message: error.message,
+        response.status(500).json({
+          message: error.syscall === 'connect' ? 'no database' : error.message,
           hint: error.hint
-        }))  
+        })
       } else {
         const transformed = result.rows[0]
-        response.send(JSON.stringify([transformed.x, transformed.y]))
+        response.json([transformed.x, transformed.y])
       }
     })    
   }

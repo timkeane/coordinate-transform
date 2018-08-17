@@ -66,8 +66,8 @@ describe('transform', () => {
     expect(transform.proj4.mock.calls[0][1]).toBe(params.toEpsg)
     expect(transform.proj4.mock.calls[0][2]).toEqual([params.x, params.y])
     
-    expect(mockResponse.send).toHaveBeenCalledTimes(1)
-    expect(mockResponse.send.mock.calls[0][0]).toBe('["transformed-x","transformed-y"]')
+    expect(mockResponse.json).toHaveBeenCalledTimes(1)
+    expect(mockResponse.json.mock.calls[0][0]).toEqual(['transformed-x', 'transformed-y'])
   })
 
   test('transform success', () => {
@@ -85,7 +85,7 @@ describe('transform', () => {
     expect(mockResponse.status).toHaveBeenCalledTimes(1)
     expect(mockResponse.status.mock.calls[0][0]).toBe(500)
     
-    expect(mockResponse.send).toHaveBeenCalledTimes(1)
-    expect(mockResponse.send.mock.calls[0][0]).toBe('{"message":"sol"}')
+    expect(mockResponse.json).toHaveBeenCalledTimes(1)
+    expect(mockResponse.json.mock.calls[0][0]).toEqual({message: 'sol'})
   })
 })
