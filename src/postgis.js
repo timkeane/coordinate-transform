@@ -13,6 +13,7 @@ const transform = {
     transform.pool.query(sql, (error, result) => {
       if (error) {
         if (error.syscall === 'connect') {
+          cosole.error(error)
           response.status(500).json({message: 'no database'})
         } else {
           response.status(400).json({message: error.message, hint: error.hint})
