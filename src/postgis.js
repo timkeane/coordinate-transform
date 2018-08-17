@@ -9,7 +9,7 @@ const transform = {
     const toEpsg = decodeURIComponent(params.toEpsg).split(':')[1]
     const x = params.x
     const y = params.y
-    const sql = `SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_GeomFromText('POINT(${x} ${y})',${fromEpsg}),${toEpsg}) c) t`
+    const sql = `SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${x},${y}),${fromEpsg}),${toEpsg}) c) t`
     transform.pool.query(sql, (error, result) => {
       if (error) {
         if (error.syscall === 'connect') {
