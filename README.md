@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/timkeane/coordinate-transform.svg?branch=master)](https://travis-ci.org/timkeane/coordinate-transform)[![Coverage Status](https://coveralls.io/repos/github/timkeane/coordinate-transform/badge.svg?branch=master)](https://coveralls.io/github/timkeane/coordinate-transform?branch=master)
+
 # coordinate-transform
 
 ## Install
