@@ -61,7 +61,7 @@ test('transform bad request', () => {
   expect(transform.pool.query.mock.calls[0][0]).toBe(`SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_GeomFromText('POINT(${params.x} ${params.y})',${params.fromEpsg.split(':')[1]}),${params.toEpsg.split(':')[1]}) c) t`)
   
   expect(mockResponse.status).toHaveBeenCalledTimes(1)
-  expect(mockResponse.status.mock.calls[0][0]).toBe(500)
+  expect(mockResponse.status.mock.calls[0][0]).toBe(400)
   
   expect(mockResponse.json).toHaveBeenCalledTimes(1)
   expect(mockResponse.json.mock.calls[0][0]).toEqual(error)

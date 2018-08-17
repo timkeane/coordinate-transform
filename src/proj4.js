@@ -17,8 +17,7 @@ const transform = {
       const transformed = transform.proj4(fromEpsg, toEpsg, [x, y])
       response.json(transformed)
     } catch (error) {
-      console.error(error)
-      response.status(500).json({message: error.message})
+      response.status(400).json({message: error.message})
     }
   }
 }

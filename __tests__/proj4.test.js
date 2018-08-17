@@ -83,7 +83,7 @@ describe('transform', () => {
     expect(transform.proj4.mock.calls[0][2]).toEqual([params.x, params.y])
     
     expect(mockResponse.status).toHaveBeenCalledTimes(1)
-    expect(mockResponse.status.mock.calls[0][0]).toBe(500)
+    expect(mockResponse.status.mock.calls[0][0]).toBe(400)
     
     expect(mockResponse.json).toHaveBeenCalledTimes(1)
     expect(mockResponse.json.mock.calls[0][0]).toEqual({message: 'sol'})
