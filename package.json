@@ -1,6 +1,6 @@
 {
   "name": "coordinate-transform",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "REST coordinate transformation",
   "main": "index.js",
   "scripts": {
