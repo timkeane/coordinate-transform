@@ -8,7 +8,7 @@
 
 `yarn start`
 
-## Sample requests:
+## Sample requests
 
 ### Transform the coordinates of 2 Metrotech Center from EPSG:2263 to EPSG:4326
 http://localhost:3000/proj4/EPSG:2263/EPSG:4326/988217/192020
