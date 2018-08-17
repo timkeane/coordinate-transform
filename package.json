@@ -24,6 +24,8 @@
     "proj4": "^2.4.4"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
+    "isomorphic-fetch": "^2.2.1",
     "jest": "^23.5.0",
     "nodemon": "^1.18.3"
   },
@@ -32,6 +34,16 @@
     "automock": false,
     "testMatch": [
       "**/__tests__/**/*.test.js"
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage/",
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/coverage/",
+      "__tests__"
     ]
   }
 }
