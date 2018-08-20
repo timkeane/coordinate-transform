@@ -2,6 +2,12 @@ require('isomorphic-fetch')
 
 const server = require('../index')
 
+afterEach(() => {
+  try {
+    server.close() // in case of failure before reaching close statement
+  }catch (e) {}
+})
+
 test('proj4 integration test', done => {
   fetch('http://localhost:3000/proj4/EPSG:2263/EPSG:4326/988217/192020')
     .then(respose => {
