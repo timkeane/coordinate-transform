@@ -1,0 +1,10 @@
+---
+applications:
+- name: coordinate-transform
+  memory: 256mb
+  instances: 1
+  host: coordinate-transform
+  command: node index.js
+  random-route: true
+  services:
+    - gis-pg-service
