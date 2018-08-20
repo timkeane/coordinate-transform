@@ -13,7 +13,7 @@ const transform = {
     transform.pool.query(sql, (error, result) => {
       if (error) {
         console.error(error)
-        if (error.syscall === 'connect') {
+        if (error.syscall === 'connect' || error.routine === 'auth_failed') {
           response.status(500).json({message: 'no database'})
         } else {
           response.status(400).json({message: error.message, hint: error.hint})
