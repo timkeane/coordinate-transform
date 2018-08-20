@@ -3,7 +3,7 @@ applications:
 - name: coordinate-transform
   memory: 256mb
   instances: 1
-  host: coordinate-transform-${random-word}
+  # host: coordinate-transform-${random-word}
   command: node index.js
   random-route: true
   services:
