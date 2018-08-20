@@ -28,7 +28,7 @@ http://localhost:3000/postgis/EPSG:4326/EPSG:3857/-73.9856945509795/40.693726387
   * Forgot a colon in an EPSG code
     http://localhost:3000/proj4/EPSG4326/EPSG:3857/-73.9856945509795/40.69372638702077
   * An X or Y ordinate is not a number
-    http://localhost:3000/postgis/EPSG:4326/EPSG:3857/-73.9856945509795/lattitude
+    http://localhost:3000/postgis/EPSG:4326/EPSG:3857/-73.9856945509795/latitude
 
 ## Use of the postgis endpoint requires an environment variable for a connection string to a running instance of PostGIS
 
