@@ -2,7 +2,7 @@ require('dotenv').config()
 const {Pool} = require('pg')
 
 const transform = {
-  pool: new Pool({connectionString: process.env.POSTGIS_URI}),
+  pool: new Pool({connectionString: require('db-uri-resolver')}),
   transform: (request, response) => {
     const params = request.params
     const fromEpsg = decodeURIComponent(params.fromEpsg).split(':')[1]
