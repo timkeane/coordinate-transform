@@ -6,7 +6,7 @@ if (dbUri) {
 
   console.log('Parsed', JSON.parse(dbUri))
 
-  dbUri = JSON.parse(dbUri)['user-provided'].credentials.uri
+  dbUri = JSON.parse(dbUri)['user-provided'][0].credentials.uri
 } else {
   dbUri = process.env.POSTGIS_URI
 }
