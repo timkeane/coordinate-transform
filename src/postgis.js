@@ -12,8 +12,8 @@ const transform = {
     const sql = `SELECT ST_X(t.c) x,ST_Y(t.c) y FROM (SELECT ST_Transform(ST_SetSRID(ST_POINT(${x},${y}),${fromEpsg}),${toEpsg}) c) t`
     transform.pool.query(sql, (error, result) => {
       if (error) {
+        console.error(error)
         if (error.syscall === 'connect') {
-          console.error(error)
           response.status(500).json({message: 'no database'})
         } else {
           response.status(400).json({message: error.message, hint: error.hint})
