@@ -9,4 +9,5 @@ mockResponse.reset = () => {
     return mockResponse
   })
 }
+mockResponse.reset()
 module.exports = mockResponse
