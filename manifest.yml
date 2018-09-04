@@ -9,3 +9,4 @@ applications:
   services:
     - gis-pg-service
     - log-drain
+    - dynatrace-service
